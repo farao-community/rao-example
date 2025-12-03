@@ -7,11 +7,11 @@ The code described in the [tutorial](https://powsybl.readthedocs.io/projects/ope
 Create the jar: 
 
 ```
-mvn package 
+mvn clean package 
 ```
 
 Run the main:
 
 ```
-jar -jar target/rao-example-1.0-SNAPSHOT.jar
+java -jar target/rao-example-1.0-SNAPSHOT.jar
 ```
