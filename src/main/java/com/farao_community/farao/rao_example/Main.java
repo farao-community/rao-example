@@ -148,7 +148,7 @@ public class Main {
 
         // Run RAO
         RaoInput.RaoInputBuilder raoInputBuilder = RaoInput.build(network, crac);
-        RaoResult raoResult = Rao.find().run(raoInputBuilder.build(), raoParameters);
+        RaoResult raoResult = Rao.find("SearchTreeRao").run(raoInputBuilder.build(), raoParameters);
 
         System.exit(0);
     }
