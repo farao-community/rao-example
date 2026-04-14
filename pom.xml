@@ -66,6 +66,11 @@
         </dependency>
         <dependency>
             <groupId>com.powsybl</groupId>
+            <artifactId>open-rao-crac-io-commons</artifactId>
+            <version>${openrao.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.powsybl</groupId>
             <artifactId>open-rao-rao-api</artifactId>
             <version>${openrao.version}</version>
         </dependency>
