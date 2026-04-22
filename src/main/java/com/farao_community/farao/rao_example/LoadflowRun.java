@@ -23,5 +23,7 @@ public class LoadflowRun {
         LoadFlowParameters loadFlowParameters = getSensitivityWithLoadFlowParameters(raoParameters).getLoadFlowParameters();
 
         LoadFlow.run(network, loadFlowParameters);
+
+        System.exit(0);
     }
 }
