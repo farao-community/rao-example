@@ -34,12 +34,12 @@ public class CimInputs {
         String networkFilename = "CIM_inputs/MicroGrid.zip";
         Properties importParams = new Properties(); // Extra code necessary to import CIM CGMES files
         importParams.put("iidm.import.cgmes.source-for-iidm-id", "rdfID");
-        Path path = Paths.get(Objects.requireNonNull(Main.class.getResource("/%s".formatted(networkFilename))).toURI());
+        Path path = Paths.get(Objects.requireNonNull(CimInputs.class.getResource("/%s".formatted(networkFilename))).toURI());
         Network network = Network.read(path, LocalComputationManager.getDefault(), Suppliers.memoize(ImportConfig::load).get(), importParams);
 
         // Import CIM CRAC
         String cracFilename = "CIM_inputs/CIM_21_7_1.xml";
-        InputStream is = Main.class.getResourceAsStream("/%s".formatted(cracFilename));
+        InputStream is = CimInputs.class.getResourceAsStream("/%s".formatted(cracFilename));
         OffsetDateTime offsetDateTime = ZonedDateTime.of(LocalDateTime.parse("2021-04-02 09:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")), ZoneId.of("Europe/Brussels"))
                 .toOffsetDateTime();
         CracCreationParameters cracCreationParameters = new CracCreationParameters();
@@ -49,8 +49,8 @@ public class CimInputs {
         Crac crac = cracCreationContext.getCrac();
 
         // Import JSON RAO parameters
-        String raoParametersFilename = "CIM_inputs/raoParameters_SWE_5_19_2.json";
-        RaoParameters raoParameters = JsonRaoParameters.read(Main.class.getResourceAsStream("/%s".formatted(raoParametersFilename)));
+        String raoParametersFilename = "CIM_inputs/raoParameters_SWE_5_21_0.json";
+        RaoParameters raoParameters = JsonRaoParameters.read(CimInputs.class.getResourceAsStream("/%s".formatted(raoParametersFilename)));
 
         // Run RAO
         RaoInput.RaoInputBuilder raoInputBuilder = RaoInput.build(network, crac);

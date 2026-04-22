@@ -16,15 +16,15 @@ public class InInputs {
     public static void main(String[] args) throws IOException {
         // Import network from UCTE
         String networkFilename = "12Nodes.uct";
-        Network network = Network.read(networkFilename, Main.class.getResourceAsStream("/%s".formatted(networkFilename)));
+        Network network = Network.read(networkFilename, InInputs.class.getResourceAsStream("/%s".formatted(networkFilename)));
 
         // Import IN CRAC
         String cracFilename = "IN_inputs/cse_crac_1.xml";
-        Crac crac = Crac.read(cracFilename, Objects.requireNonNull(Main.class.getResourceAsStream("/%s".formatted(cracFilename))), network);
+        Crac crac = Crac.read(cracFilename, Objects.requireNonNull(InInputs.class.getResourceAsStream("/%s".formatted(cracFilename))), network);
 
         // Import JSON RAO parameters
-        String raoParametersFilename = "IN_inputs/raoParameters_CSE_5_19_2.json";
-        RaoParameters raoParameters = JsonRaoParameters.read(Main.class.getResourceAsStream("/%s".formatted(raoParametersFilename)));
+        String raoParametersFilename = "IN_inputs/raoParameters_CSE_5_21_0.json";
+        RaoParameters raoParameters = JsonRaoParameters.read(InInputs.class.getResourceAsStream("/%s".formatted(raoParametersFilename)));
 
         // Run RAO
         RaoInput.RaoInputBuilder raoInputBuilder = RaoInput.build(network, crac);

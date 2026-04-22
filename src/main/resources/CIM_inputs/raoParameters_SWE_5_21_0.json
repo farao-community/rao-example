@@ -1,8 +1,7 @@
 {
-  "version" : "3.2",
+  "version" : "3.3",
   "objective-function" : {
     "type" : "SECURE_FLOW",
-    "unit" : "A",
     "enforce-curative-security" : true
   },
   "range-actions-optimization" : {
@@ -51,9 +50,9 @@
         "sensitivity-provider" : "OpenLoadFlow",
         "sensitivity-failure-overcost" : 10000.0,
         "sensitivity-parameters" : {
-          "version" : "1.1",
+          "version" : "1.2",
           "load-flow-parameters" : {
-            "version" : "1.9",
+            "version" : "1.10",
             "voltageInitMode" : "DC_VALUES",
             "transformerVoltageControlOn" : false,
             "phaseShifterRegulationOn" : true,
@@ -66,8 +65,8 @@
             "distributedSlack" : true,
             "balanceType" : "PROPORTIONAL_TO_LOAD",
             "dcUseTransformerRatio" : true,
-            "countriesToBalance" : [ "ES", "PT", "FR" ],
-            "connectedComponentMode" : "MAIN",
+            "countriesToBalance" : [ "FR", "ES", "PT" ],
+            "componentMode" : "MAIN_CONNECTED",
             "hvdcAcEmulation" : true,
             "dcPowerFactor" : 1.0,
             "extensions" : {
@@ -138,7 +137,7 @@
                 "newtonKrylovLineSearch" : false,
                 "referenceBusSelectionMode" : "FIRST_SLACK",
                 "writeReferenceTerminals" : true,
-                "voltageTargetPriorities" : [ "GENERATOR", "TRANSFORMER", "SHUNT" ],
+                "voltageTargetPriorities" : [ "VOLTAGE_SOURCE_CONVERTER", "GENERATOR", "TRANSFORMER", "SHUNT" ],
                 "transformerVoltageControlUseInitialTapPosition" : false,
                 "generatorVoltageControlMinNominalVoltage" : -1.0,
                 "fictitiousGeneratorVoltageControlCheckMode" : "FORCED",
@@ -149,7 +148,10 @@
                 "disableInconsistentVoltageControls" : false,
                 "extrapolateReactiveLimits" : false,
                 "startWithFrozenACEmulation" : false,
-                "generatorsWithZeroMwTargetAreNotStarted" : true
+                "generatorsWithZeroMwTargetAreNotStarted" : true,
+                "incrementalShuntControlOuterLoopMaxSectionShift" : 3,
+                "fixVoltageTargets" : false,
+                "acDcNetwork" : false
               }
             }
           },
@@ -157,16 +159,24 @@
           "voltage-voltage-sensitivity-value-threshold" : 0.0,
           "flow-voltage-sensitivity-value-threshold" : 0.0,
           "angle-flow-sensitivity-value-threshold" : 0.0,
+          "operator-strategies-calculation-mode" : "NONE",
           "extensions" : {
             "open-sensitivity-parameters" : {
-              "debugDir" : null,
-              "startWithFrozenACEmulation" : true
+              "debugDir" : "",
+              "startWithFrozenACEmulation" : false,
+              "threadCount" : 1
             }
           }
         }
       },
       "multi-threading" : {
         "available-cpus" : 14
+      },
+      "pst-regulation-parameters" : {
+        "psts-to-regulate" : {
+          "_f82152ac-578e-500e-97db-84e788c471ee" : "_0a3cbdb0-cd71-52b0-b93d-cb48c9fea3e2 + _6f6b15b3-9bcc-7864-7669-522e9f06e931",
+          "_e071a1d4-fef5-1bd9-5278-d195c5597b6e" : "_1d9c658e-1a01-c0ee-d127-a22e1270a242 + _2e81de07-4c22-5aa1-9683-5e51b054f7f8"
+        }
       }
     }
   }
