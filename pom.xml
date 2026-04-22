@@ -18,6 +18,8 @@
         <powsybl.olf.version>2.2.0</powsybl.olf.version>
         <powsybl.rao.version>7.2.0</powsybl.rao.version-->
         <!--powsybl.starter.version>2026.0.0</powsybl.starter.version-->
+        <farao-dichotomy.version>4.35.0</farao-dichotomy.version>
+        <gridcapa-cse.version>1.50.0</gridcapa-cse.version>
         <logback.version>1.5.21</logback.version>
     </properties>
 
@@ -62,6 +64,42 @@
 
 
     <dependencies>
+        <dependency>
+            <groupId>com.farao-community.farao</groupId>
+            <artifactId>farao-dichotomy-shift</artifactId>
+            <version>${farao-dichotomy.version}</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.powsybl</groupId>
+                    <artifactId>powsybl-config-classic</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--dependency>
+            <groupId>com.farao-community.farao</groupId>
+            <artifactId>gridcapa-cse-data</artifactId>
+            <version>${gridcapa-cse.version}</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.powsybl</groupId>
+                    <artifactId>powsybl-config-classic</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency-->
+        <dependency>
+            <groupId>com.farao-community.farao</groupId>
+            <artifactId>gridcapa-cse-cc-import-runner-app</artifactId>
+            <version>${gridcapa-cse.version}</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.powsybl</groupId>
+                    <artifactId>powsybl-config-classic</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         <!-- COMPILE DEPENDENCIES -->
         <!--dependency>
             <groupId>com.powsybl</groupId>
