@@ -137,7 +137,7 @@ public class Main {
         // Ask the RAO to maximize minimum margin in MW, and to stop when network is secure (i.e. when margins are positive)
         ObjectiveFunctionParameters objectiveFunctionParameters = new ObjectiveFunctionParameters();
         objectiveFunctionParameters.setType(ObjectiveFunctionParameters.ObjectiveFunctionType.SECURE_FLOW);
-        objectiveFunctionParameters.setUnit(Unit.MEGAWATT);
+        raoParameters.setObjectiveFunctionParameters(objectiveFunctionParameters);
 
         // Enable "APPROXIMATED_INTEGERS" in PST optimization, for better accuracy
         SearchTreeRaoRangeActionsOptimizationParameters rangeActionsParameters = new SearchTreeRaoRangeActionsOptimizationParameters();
