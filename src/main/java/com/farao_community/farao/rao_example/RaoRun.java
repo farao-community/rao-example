@@ -21,11 +21,11 @@ import com.powsybl.openrao.raoapi.parameters.extensions.OpenRaoSearchTreeParamet
 import com.powsybl.openrao.raoapi.parameters.extensions.SearchTreeRaoRangeActionsOptimizationParameters;
 import com.powsybl.sensitivity.SensitivityAnalysisParameters;
 
-public class Main {
+public class RaoRun {
     public static void main(String[] args) {
         // Import network from UCTE file
         String networkFilename = "12Nodes.uct";
-        Network network = Network.read(networkFilename, Main.class.getResourceAsStream("/%s".formatted(networkFilename)));
+        Network network = Network.read(networkFilename, RaoRun.class.getResourceAsStream("/%s".formatted(networkFilename)));
 
         // Initialise CRAC
         Crac crac = CracFactory.findDefault().create("crac");
@@ -137,7 +137,6 @@ public class Main {
         // Ask the RAO to maximize minimum margin in MW, and to stop when network is secure (i.e. when margins are positive)
         ObjectiveFunctionParameters objectiveFunctionParameters = new ObjectiveFunctionParameters();
         objectiveFunctionParameters.setType(ObjectiveFunctionParameters.ObjectiveFunctionType.SECURE_FLOW);
-        objectiveFunctionParameters.setUnit(Unit.MEGAWATT);
 
         // Enable "APPROXIMATED_INTEGERS" in PST optimization, for better accuracy
         SearchTreeRaoRangeActionsOptimizationParameters rangeActionsParameters = new SearchTreeRaoRangeActionsOptimizationParameters();

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GSKDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" DtdVersion="1" DtdRelease="0" xsi:noNamespaceSchemaLocation="gsk-document.xsd">
+    <DocumentIdentification v="20230717_2230_001_CO_GSK_CSE"/>
+    <DocumentVersion v="1"/>
+    <DocumentScenario v="Transit"/>
+    <DocumentType v="B22"/>
+    <ProcessType v="A40"/>
+    <SenderIdentification v="10VCSEEH4MMD-NDO" codingScheme="A01"/>
+    <SenderRole v="A36"/>
+    <ReceiverIdentification v="10X1001A1001A345" codingScheme="A01"/>
+    <ReceiverRole v="A36"/>
+    <CreationDateTime v="2023-07-17T00:46:53Z"/>
+    <GSKTimeInterval v="2023-07-17T20:00Z/2023-07-17T21:00Z"/>
+    <Domain v="10YDOM-1001A061T" codingScheme="A01"/>
+    <CalculationDirections>
+        <CalculationDirection>
+            <Direction v="Import"/>
+            <Country v="FR"/>
+            <InArea v="10YIT-GRTN-----B" codingScheme="A01"/>
+            <OutArea v="10YFR-RTE------C" codingScheme="A01"/>
+        </CalculationDirection>
+        <CalculationDirection>
+            <Direction v="Import"/>
+            <Country v="CH"/>
+            <InArea v="10YIT-GRTN-----B" codingScheme="A01"/>
+            <OutArea v="10YCH-SWISSGRIDZ" codingScheme="A01"/>
+        </CalculationDirection>
+        <CalculationDirection>
+            <Direction v="Import"/>
+            <Country v="SI"/>
+            <InArea v="10YIT-GRTN-----B" codingScheme="A01"/>
+            <OutArea v="10YSI-ELES-----O" codingScheme="A01"/>
+        </CalculationDirection>
+        <CalculationDirection>
+            <Direction v="Import"/>
+            <Country v="AT"/>
+            <InArea v="10YIT-GRTN-----B" codingScheme="A01"/>
+            <OutArea v="10YAT-APG------L" codingScheme="A01"/>
+        </CalculationDirection>
+    </CalculationDirections>
+    <TimeSeries>
+        <TimeSeriesIdentification v="1"/>
+        <BusinessType v="Z02"/>
+        <Area v="10YFR-RTE------C" codingScheme="A01"/>
+        <Name v="FR"/>
+        <TimeInterval v="2023-07-17T20:00Z/2023-07-17T21:00Z"/>
+        <PropGSKBlock>
+            <Node>
+                <Name v="FGENE111"/>
+            </Node>
+            <Node>
+                <Name v="FGENE211"/>
+            </Node>
+            <Node>
+                <Name v="FGENE311"/>
+            </Node>
+        </PropGSKBlock>
+    </TimeSeries>
+    <TimeSeries>
+        <TimeSeriesIdentification v="1"/>
+        <BusinessType v="Z02"/>
+        <Area v="10YCH-SWISSGRIDZ" codingScheme="A01"/>
+        <Name v="CH"/>
+        <TimeInterval v="2023-07-17T20:00Z/2023-07-17T21:00Z"/>
+        <PropGSKBlock>
+            <Node>
+                <Name v="SGENE111"/>
+            </Node>
+            <Node>
+                <Name v="sGENE211"/>
+            </Node>
+            <Node>
+                <Name v="SGENE311"/>
+            </Node>
+        </PropGSKBlock>
+    </TimeSeries>
+    <TimeSeries>
+        <TimeSeriesIdentification v="1"/>
+        <BusinessType v="Z02"/>
+        <Area v="10YAT-APG------L" codingScheme="A01"/>
+        <Name v="AT"/>
+        <TimeInterval v="2023-07-17T20:00Z/2023-07-17T21:00Z"/>
+        <PropGSKBlock>
+            <Node>
+                <Name v="OGENE111"/>
+            </Node>
+            <Node>
+                <Name v="OGENE211"/>
+            </Node>
+            <Node>
+                <Name v="OGENE311"/>
+            </Node>
+        </PropGSKBlock>
+    </TimeSeries>
+    <TimeSeries>
+        <TimeSeriesIdentification v="1"/>
+        <BusinessType v="Z02"/>
+        <Area v="10YSI-ELES-----O" codingScheme="A01"/>
+        <Name v="SI"/>
+        <TimeInterval v="2023-07-17T20:00Z/2023-07-17T21:00Z"/>
+        <PropGSKBlock>
+            <Node>
+                <Name v="LGENE111"/>
+            </Node>
+            <Node>
+                <Name v="LGENE211"/>
+            </Node>
+            <Node>
+                <Name v="LGENE311"/>
+            </Node>
+        </PropGSKBlock>
+    </TimeSeries>
+    <TimeSeries>
+        <TimeSeriesIdentification v="1"/>
+        <BusinessType v="Z02"/>
+        <Area v="10YIT-GRTN-----B" codingScheme="A01"/>
+        <Name v="IT"/>
+        <TimeInterval v="2023-07-17T20:00Z/2023-07-17T21:00Z"/>
+        <PropGSKBlock>
+            <Node>
+                <Name v="IGENE111"/>
+            </Node>
+            <Node>
+                <Name v="IGENE211"/>
+            </Node>
+            <Node>
+                <Name v="IGENE311"/>
+            </Node>
+        </PropGSKBlock>
+    </TimeSeries>
+</GSKDocument>

@@ -8,16 +8,32 @@
     <artifactId>rao-example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
+        <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <maven.shade.version>3.6.1</maven.shade.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <powsybl.core.version>7.0.1</powsybl.core.version>
-        <powsybl.starter.version>2025.2.0</powsybl.starter.version>
-        <openrao.version>7.0.0</openrao.version>
+        <powsybl-dependencies.version>2026.0.0</powsybl-dependencies.version>
+        <!--powsybl.core.version>7.2.1</powsybl.core.version>
+        <powsybl.olf.version>2.2.0</powsybl.olf.version>
+        <powsybl.rao.version>7.2.0</powsybl.rao.version-->
+        <!--powsybl.starter.version>2026.0.0</powsybl.starter.version-->
+        <farao-dichotomy.version>4.35.0</farao-dichotomy.version>
+        <gridcapa-cse.version>1.50.0</gridcapa-cse.version>
         <logback.version>1.5.21</logback.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.powsybl</groupId>
+                <artifactId>powsybl-dependencies</artifactId>
+                <version>${powsybl-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
@@ -35,7 +51,7 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.farao_community.farao.rao_example.Main</mainClass>
+                                    <mainClass>com.farao_community.farao.rao_example.RaoRun</mainClass>
                                 </transformer>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                             </transformers>
@@ -48,55 +64,157 @@
 
 
     <dependencies>
-        <!-- COMPILE DEPENDENCIES -->
         <dependency>
+            <groupId>com.farao-community.farao</groupId>
+            <artifactId>farao-dichotomy-shift</artifactId>
+            <version>${farao-dichotomy.version}</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.powsybl</groupId>
+                    <artifactId>powsybl-config-classic</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--dependency>
+            <groupId>com.farao-community.farao</groupId>
+            <artifactId>gridcapa-cse-data</artifactId>
+            <version>${gridcapa-cse.version}</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.powsybl</groupId>
+                    <artifactId>powsybl-config-classic</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency-->
+        <dependency>
+            <groupId>com.farao-community.farao</groupId>
+            <artifactId>gridcapa-cse-cc-import-runner-app</artifactId>
+            <version>${gridcapa-cse.version}</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.powsybl</groupId>
+                    <artifactId>powsybl-config-classic</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- COMPILE DEPENDENCIES -->
+        <!--dependency>
             <groupId>com.powsybl</groupId>
             <artifactId>powsybl-starter</artifactId>
             <version>${powsybl.starter.version}</version>
-        </dependency>
+        </dependency-->
         <dependency>
             <groupId>com.powsybl</groupId>
             <artifactId>open-rao-crac-api</artifactId>
-            <version>${openrao.version}</version>
+            <!--version>${powsybl.rao.version}</version-->
         </dependency>
         <dependency>
             <groupId>com.powsybl</groupId>
             <artifactId>open-rao-commons</artifactId>
-            <version>${openrao.version}</version>
+            <!--version>${powsybl.rao.version}</version-->
+        </dependency>
+        <dependency>
+            <groupId>com.powsybl</groupId>
+            <artifactId>open-rao-crac-io-cim</artifactId>
+            <!--version>${powsybl.rao.version}</version-->
+        </dependency>
+        <dependency>
+            <groupId>com.powsybl</groupId>
+            <artifactId>open-rao-crac-io-cse</artifactId>
+            <!--version>${powsybl.rao.version}</version-->
+        </dependency>
+        <dependency>
+            <groupId>com.powsybl</groupId>
+            <artifactId>open-rao-crac-io-commons</artifactId>
+            <!--version>${powsybl.rao.version}</version-->
+        </dependency>
+        <dependency>
+            <groupId>com.powsybl</groupId>
+            <artifactId>powsybl-balances-adjustment</artifactId>
+            <!--version>${powsybl.entsoe.version}</version-->
         </dependency>
         <dependency>
             <groupId>com.powsybl</groupId>
             <artifactId>open-rao-rao-api</artifactId>
-            <version>${openrao.version}</version>
+            <!--version>${powsybl.rao.version}</version-->
         </dependency>
         <dependency>
             <groupId>com.powsybl</groupId>
             <artifactId>open-rao-rao-result-json</artifactId>
-            <version>${openrao.version}</version>
+            <!--version>${powsybl.rao.version}</version-->
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.powsybl</groupId>
+            <artifactId>powsybl-open-loadflow</artifactId>
+            <!--version>${powsybl.olf.version}</version-->
+        </dependency>
+        <dependency>
+            <groupId>com.powsybl</groupId>
+            <artifactId>powsybl-loadflow-api</artifactId>
+            <!--version>${powsybl.core.version}</version-->
+        </dependency>
+        <dependency>
+            <groupId>com.powsybl</groupId>
+            <artifactId>powsybl-glsk-commons</artifactId>
+            <!--version>${powsybl.entsoe.version}</version-->
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.powsybl</groupId>
+            <artifactId>powsybl-glsk-document-cim</artifactId>
+            <!--version>${powsybl.entsoe.version}</version-->
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.powsybl</groupId>
+            <artifactId>powsybl-glsk-document-cse</artifactId>
+            <!--version>${powsybl.entsoe.version}</version-->
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.powsybl</groupId>
+            <artifactId>powsybl-glsk-document-io-api</artifactId>
+            <!--version>${powsybl.entsoe.version}</version-->
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.powsybl</groupId>
+            <artifactId>powsybl-glsk-document-ucte</artifactId>
+            <!--version>${powsybl.entsoe.version}</version-->
+            <scope>compile</scope>
+        </dependency>
 
         <!-- RUNTIME DEPENDENCIES -->
         <dependency>
             <groupId>com.powsybl</groupId>
             <artifactId>powsybl-ucte-converter</artifactId>
-            <version>${powsybl.core.version}</version>
+            <!--version>${powsybl.core.version}</version-->
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.powsybl</groupId>
+            <artifactId>powsybl-cgmes-conversion</artifactId>
+            <!--version>${powsybl.core.version}</version-->
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.powsybl</groupId>
             <artifactId>open-rao-crac-impl</artifactId>
-            <version>${openrao.version}</version>
+            <!--version>${powsybl.rao.version}</version-->
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.powsybl</groupId>
             <artifactId>open-rao-search-tree-rao</artifactId>
-            <version>${openrao.version}</version>
+            <!--version>${powsybl.rao.version}</version-->
             <scope>runtime</scope>
         </dependency>
     </dependencies>
