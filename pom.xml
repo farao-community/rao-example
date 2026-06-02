@@ -13,10 +13,10 @@
         <maven.compiler.target>21</maven.compiler.target>
         <maven.shade.version>3.6.1</maven.shade.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <powsybl.core.version>7.0.1</powsybl.core.version>
-        <powsybl.starter.version>2025.2.0</powsybl.starter.version>
-        <openrao.version>7.0.0</openrao.version>
-        <logback.version>1.5.21</logback.version>
+        <powsybl.core.version>7.2.1</powsybl.core.version>
+        <powsybl.starter.version>2026.0.0</powsybl.starter.version>
+        <openrao.version>7.2.0</openrao.version>
+        <logback.version>1.5.26</logback.version>
     </properties>
 
     <build>
